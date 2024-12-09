@@ -8,3 +8,12 @@ Future<void> numbers(SendPort sendPort) async {
   }
   Isolate.exit();
 }
+
+void main() {
+  final receivePort = ReceivePort();
+  Isolate.spawn(numbers, receivePort.sendPort);
+  receivePort.take(5).listen((event) {
+    print(event);
+  });
+  print('done');
+}
