@@ -1,5 +1,6 @@
-import 'package:test_api/test_api.dart';
-Future<String> getName() async{
+import 'package:flutter_test/flutter_test.dart';
+
+Future<String> getName() async {
   return Future.delayed(Duration(seconds: 2), () => "Kharis Raihan");
 }
 
@@ -8,5 +9,5 @@ void main() {
     final name = getName();
     expect(name, completion(equals("Kharis Raihan")));
   });
-  test("future Test", () async);
+  test("future Test", () async {});
 }
